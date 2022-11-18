@@ -59,7 +59,7 @@ describe("Primer reto", () => {
         .tab() //el apellido no lo modifico y sólo tabulo
         .type("abre@example.com").tab() //modifico el mail y tabulo
         cy.get('#submit').should("be.visible").click()
-        //capturo el botón de submit, validamos que sea visible y hago click en él.
+        //capturo el botón de submit, validamos que sea visible y hago click en él..
 
 
         //Eliminar un registro de la tabla:
