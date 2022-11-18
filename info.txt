@@ -1,0 +1,11 @@
+Instalacion de la nueva version 2022
+
+situado en la ruta del proyecto, poner en consola:
+
+1.- npm install cypress --save-dev
+
+2.- instalar npx:
+npm install -g npx
+
+3.- iniciar la app:
+npx cypress open
