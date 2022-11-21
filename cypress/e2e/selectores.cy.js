@@ -47,6 +47,14 @@ describe("Tipos de selectores", () => {
         //lo almacena en el portapapeles y aquí lo pego dentro del paréntesis de xpath(). 
         //Ojo cambiar al nombre en si (userName)de comillas dobles a simples (o viceversa, ver siguiente linea) para que no de error
 
+
+        //También puedo descargarme extensiones de chrome, como he hecho con TruePath
+        //y hago igual: click derecho al elemento, y bien, Inspeccionar y miro la extensión
+        //en Chrome F12, abajo a la derecha (pone TruePath), donde Styles de CSS en el inspector,etc 
+        //copio el texto que sale con la manita verde,
+        //o bien, al dar click derecho al elemento, en vez de inspeccionar, selecciono 
+        //Relative Xpath/Xpath with id click al primer resultado y en la emergente copio el Xpath (tercer elemento)
+
         cy.xpath('//*[@id="userEmail"]').should("be.visible").type("demo3@gmail.com")
     })
 
