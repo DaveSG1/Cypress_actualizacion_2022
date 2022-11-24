@@ -34,7 +34,7 @@ describe("Tipos de selectores", () => {
 
 
     it.only("Selector por Xpath", () => {
-        //hay q instalar el plugin con npm install -D cypress-xpath (viene en la pag npmjs.com/cypress-xpath)
+        //hay q instalar el plugin por consola con npm install -D cypress-xpath (viene en la pag npmjs.com/cypress-xpath)
         //y añadir arriba de la pagina de test (ver linea 4): require('cypress-xpath')
         cy.visit("https://demoqa.com/text-box")
         cy.title().should("eq", "ToolsQA")
@@ -56,6 +56,8 @@ describe("Tipos de selectores", () => {
         //Relative Xpath/Xpath with id click al primer resultado y en la emergente copio el Xpath (tercer elemento)
 
         cy.xpath('//*[@id="userEmail"]').should("be.visible").type("demo3@gmail.com")
+        cy.wait(1000)
+        cy.xpath("//textarea[contains(@id,'currentAddress')]").type("Larios, 1 Málaga")
     })
 
     
