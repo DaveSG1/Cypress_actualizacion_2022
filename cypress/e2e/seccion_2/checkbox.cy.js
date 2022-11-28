@@ -58,5 +58,21 @@ describe("Nueva sección checkbox", () => {
      
     })
 
+
+    
+    it.only("Multiselect: Seleccionar varios elementos a la vez", () => {
+        cy.visit("https://demo.seleniumeasy.com/basic-select-dropdown-demo.html")
+        cy.title().should('eq', "Selenium Easy Demo - Automate All Scenarios")
+        cy.wait(1000)
+
+        cy.get('#multi-select').should("be.visible").select(["California","Ohio","Washington"])
+        //Con ésto le digo que marque los 3 resultados a la vez. Miro los nombres exactos en el inspector
+        .then(()=>{
+            cy.get('#printMe').should("be.visible").click()
+        })
+        //Promesa: Con éste .then le digo que, si ha podido hacer la multiselección anterior, entonces haga click en el botón de abajo
+
+    })
+
     
 })
