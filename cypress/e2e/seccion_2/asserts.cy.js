@@ -24,7 +24,7 @@ describe("Asserts", () => {
       })
 
 
-      it.only("Assert find", () => {
+      it("Assert find", () => {
         cy.visit("https://automationexercise.com/")
         cy.title().should('eq', "Automation Exercise")
         cy.wait(1500)    
@@ -38,4 +38,18 @@ describe("Asserts", () => {
         cy.get(':nth-child(3) > .product-image-wrapper > .choose > .nav > li > a').click()
              
       })
+
+      //Otro ejemplo mejor del assert Find. En ésta web sí funciona como queremos:      
+      it.only("Assert find", () => {
+        cy.visit("https://www.demoblaze.com/")
+        cy.title().should('eq', "STORE")
+        cy.wait(1500)    
+        
+        cy.get("#tbodyid").find(".hrefch").eq(1).click()
+        //De un elemento padre, le especifico el elemento hijo en el que funciona el click (con el find) 
+        //y en el eq le digo cuál de los moviles quiero ver en detalle (el primero (0), el segundo (1), etc)
+                    
+      })
+
+
 })
