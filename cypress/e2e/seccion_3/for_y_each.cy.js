@@ -49,7 +49,7 @@ describe("Bucles For y each", () => {
     })
 
 
-    it.only("Each 2", () => {  
+    it("Each 2", () => {  
         cy.visit("https://www.demoblaze.com/") 
         cy.title().should('eq', "STORE")  
         cy.wait(1500)     
@@ -64,10 +64,8 @@ describe("Bucles For y each", () => {
                 //...que lo seleccione: para esto se usa siempre el .wrap($el) 
                 //y no el .get(etiqueta del elemento) y le haga click
                 cy.wrap($el).click()
-            }
-                        
+            }                        
         })     
-    })
-
+    })    
     
 })
