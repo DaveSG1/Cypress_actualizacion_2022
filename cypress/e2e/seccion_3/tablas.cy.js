@@ -10,7 +10,7 @@ require('cypress-plugin-tab')
 
 describe("Tablas", () => {
 
-    it("Elementos padre e hijo", () => {  
+    it("Seleccionar al elemento hijo dado un padre .children()", () => {  
         cy.visit("https://demo.seleniumeasy.com/table-records-filter-demo.html") 
         cy.title().should('eq', "Selenium Easy - Table Data Filter Demo")  
         cy.wait(1500) 
@@ -25,6 +25,18 @@ describe("Tablas", () => {
         cy.get(".btn-group").children(".btn-danger").should("contain","Red").click({force:true})
         cy.wait(1500)
     })
+
+
+    it("Seleccionar al elemento padre dado un hijo .parent()", () => {  
+        cy.visit("https://demo.seleniumeasy.com/table-records-filter-demo.html") 
+        cy.title().should('eq', "Selenium Easy - Table Data Filter Demo")  
+        cy.wait(1500) 
+        
+        //Para que seleccione al elemento padre de cualquiera de los botones (verde, naranja o rojo)
+        //y lo podríamos validar o no, por ejemplo diciendo la clase que tiene el elemento padre (contenedor de los botones):
+        cy.get("[type='button']").parent().should("have.class", "btn-group")
+        cy.wait(1500)      
+     }) 
 
 
     it("Seleccionar mediante .filter()", () => {  
@@ -109,7 +121,7 @@ describe("Tablas", () => {
     }) 
 
 
-    it.only("Seleccionar los elementos siguientes .nextAll()", () => {  
+    it("Seleccionar los elementos siguientes .nextAll()", () => {  
         cy.visit("https://demo.seleniumeasy.com/table-records-filter-demo.html") 
         cy.title().should('eq', "Selenium Easy - Table Data Filter Demo")  
         cy.wait(1500) 
@@ -120,5 +132,5 @@ describe("Tablas", () => {
         cy.get("[type='button']").should("contain","Green").nextAll().should("have.length", 4)
         cy.wait(1500)      
      }) 
-  
+           
 })
