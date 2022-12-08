@@ -54,7 +54,7 @@ describe("Invoke", () => {
     }) 
 
 
-    it.only("Invoke Reto ocultar elemento y sólo mostrar si otro elemento está relleno", () => {  
+    it("Invoke Reto ocultar elemento y sólo mostrar si otro elemento está relleno", () => {  
         cy.visit("https://testpages.herokuapp.com/styled/validation/input-validation.html") 
         cy.title().should('eq', "Input Validation")  
         cy.wait(1500)  
@@ -70,6 +70,27 @@ describe("Invoke", () => {
             cy.get('[for="surname"]').invoke("show","3s") //aquí el invoke lo uso para que muestre los elementos ocultados en el punto anterior, además le puedo establecer como segundo parámetro el tiempo de transición en la aparición
             cy.get('#surname').invoke("show","4s")
         })              
+    }) 
+
+    
+    it("Invoke src", () => {  
+        cy.visit("http://demo.seleniumeasy.com/bootstrap-modal-demo.html") 
+        cy.title().should('eq', "Selenium Easy Demo - Bootstrap Modal Demo to Automate")  
+        cy.wait(1500)  
+        
+        //con ésto comprobamos que la imagen de arriba con clase .cbt hago invoke por su atributo src y hago validación de que incluya dicho texto
+        cy.get(".cbt").invoke("attr","src").should("include","sponsored-by-CBT.png")
+    }) 
+
+
+    it.only("Invoke target='_blank'", () => {  
+        cy.visit("https://www.w3schools.com/tags/att_a_target.asp") 
+        cy.title().should('eq', "HTML a target Attribute")  
+        cy.wait(1500)  
+        
+        //capturo el botón "Spaces" de la página que tiene originalmente el atributo target="_blank" con lo que abriría
+        //el vínculo en una pestaña nueva, para quitar eso y que se abra en la misma pestaña, uso el invoke con removeAttr y le quito el "target"
+        cy.get('.w3-row-padding > :nth-child(3) > .w3-btn').invoke("removeAttr","target").click({force:true})
     }) 
     
 })
