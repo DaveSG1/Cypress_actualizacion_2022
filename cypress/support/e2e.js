@@ -17,7 +17,7 @@
 //import './commands'
 
 // Alternatively you can use CommonJS syntax:
-// require('./commands')
+require('./commands')
 
 // Hide fetch/XHR requests. Esto lo busque en https://stackoverflow.com/questions/71357705/hide-xhr-calls-on-cypress-test-runner
 //para que no muestre en el navegador todos los get y posts al testear, que muestre sólo lo que yo he metido
