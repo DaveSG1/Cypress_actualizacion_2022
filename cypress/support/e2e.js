@@ -35,5 +35,5 @@ if (!app.document.head.querySelector('[data-hide-command-log-request]')) {
 //por lo que viendo las preguntas del curso, indicaba que, cuando pase éste error u otro,
 //hay que añadir ésta linea en el código para que lo omita y así funcione, bien aquí para que aplique a todos los tests
 //o bien como primera línea en cada test individual. Poniendolo aquí ya no hace falta ponerlo en cada test
-Cypress. on('uncaught:exception', (err, runnable) => { return false; });
+Cypress.on('uncaught:exception', (err, runnable) => { return false });
 
