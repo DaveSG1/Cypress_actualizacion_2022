@@ -81,9 +81,9 @@ describe("Tipos de selectores", () => {
     })
 
 
-    it("Selector por contains", () => {
+    it.only("Selector por contains", () => {
 
-        cy.visit("https://demoqa.com/automation-practice-form")
+        cy.visit("https://demoqa.com/text-box")
         cy.title().should("eq", "ToolsQA")
         cy.wait(1000)
 
@@ -95,13 +95,60 @@ describe("Tipos de selectores", () => {
         //especificamos en el .contains. Así mismo con el botón del género Otros que contiene la etiqueta
         //"Other", pues se lo especificamos también.
 
-        cy.get(".custom-control-label").contains("Female").click()
+        cy.get(".text").contains("Check Box").click()
         cy.wait(1000)
 
-        cy.get(".custom-control-label").contains("Other").click()
+        cy.get(".text").contains("Radio Button").click()
         cy.wait(1000)      
+
+        //con xpath sería así la sintaxis, y me capturaría todos los elementos que contengan el texto Links (2 elementos):
+        cy.xpath("//span[contains(text(),'Links')]")
         
     }) 
+
+
+    it("Selector combinado", () => {
+
+        //Podemos hacer que el selector sea más seguro combinando varios parámetros del mismo,
+        //por ejemplo, en éste caso seleccionamos por tipo de elemento (input), por id (#userName)
+        //y además por atributo [type='text']. Se escribe todo junto dentro del cy.get("")
+
+        cy.visit("https://demoqa.com/text-box")
+        cy.title().should("eq", "ToolsQA")
+        cy.wait(1000)        
+
+        cy.get("input#userName[type='text']").should("be.visible").type("Manuel")   
+        
+    })
+
+
+    it("Selectores OR y AND (ejemplos con xpath)", () => {      
+
+        cy.visit("https://demoqa.com/text-box")
+        cy.title().should("eq", "ToolsQA")
+        cy.wait(1000)        
+
+        //Va a funcionar porque le digo que tiene que tener el id userName  Ó  el tipo email (que no se cumple), pero como la primera condición sí se cumple, lo va a capturar
+        cy.xpath("//input[@id='userName' or type='email']").should("be.visible").type("Manuel")  
+        
+        //Va a funcionar porque le digo que tiene que tener el id userName  Y  el tipo text, como ambos se cumplen, lo va a capturar, si uno fuera erróneo, no lo capturaría
+        cy.xpath("//input[@id='userName' and @type='text']").should("be.visible").clear().type("Pedro")         
+    }) 
+
+
+    it("Selectores por texto (ejemplos con xpath)", () => {      
+
+        cy.visit("https://demoqa.com/text-box")
+        cy.title().should("eq", "ToolsQA")
+        cy.wait(1000)        
+
+        //Para capturar un elemento cualquiera (contenido en un div) por su texto, si la clase, id etc no es buena:
+        cy.xpath("//div[text()='Text Box']").should("be.visible").click()
+        
+        //Para capturar un elemento span por su texto, si la clase, id etc no es buena:
+        cy.xpath("//span[text()='Dynamic Properties']").should("be.visible").click()     
+    }) 
+
 
 
     it("Selector por Copy/Copy_selector", () => {
@@ -117,28 +164,6 @@ describe("Tipos de selectores", () => {
         cy.get("#userNumber").should("be.visible").type("951548445")   
         
     })
-
-
-    it.only("Selector combinado", () => {
-
-        //Podemos hacer que el selector sea más seguro combinando varios parámetros del mismo,
-        //por ejemplo, en éste caso seleccionamos por tipo de elemento (input), por id (#userName)
-        //y además por atributo [type='text']. Se escribe todo junto dentro del cy.get("")
-
-        cy.visit("https://demoqa.com/text-box")
-        cy.title().should("eq", "ToolsQA")
-        cy.wait(1000)        
-
-        cy.get("input#userName[type='text']").should("be.visible").type("Manuel")   
-        
-    })
-
-
-    
-
-
-
-
     
 })
 

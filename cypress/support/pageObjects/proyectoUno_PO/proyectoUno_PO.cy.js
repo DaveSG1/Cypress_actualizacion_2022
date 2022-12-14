@@ -17,7 +17,7 @@ class ProyectoUno_Po{
     SeccionUno(name,surname,email){
         let tiempo = 1000
         cy.get(":nth-child(2) > .inputGroupContainer > .input-group > .form-control").clear().should("be.visible").type(name) //los clear en todos los campos de texto los pongo para que si ejecuto la prueba varias veces con distintos datos (llamo varias veces a ésta función), borre el contenido de los formularios de una prueba a otra
-        cy.wait(tiempo)
+        cy.screenshot("Campo nombre")  //ésto lo pongo para probar los screenshots
         cy.get(":nth-child(3) > .inputGroupContainer > .input-group > .form-control").clear().should("be.visible").type(surname)
         cy.wait(tiempo)
         cy.get(":nth-child(4) > .inputGroupContainer > .input-group > .form-control").clear().should("be.visible").type(email)
