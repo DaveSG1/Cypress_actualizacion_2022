@@ -1,16 +1,29 @@
 {
   
-  "devDependencies": {  
+  "devDependencies": {
+  
     
-    "@4tw/cypress-drag-drop": "^2.2.2",    
-      
-    "cypress": "^10.11.0",    
-      
-    "cypress-file-upload": "^5.0.8",    
-      
-    "cypress-plugin-tab": "^1.0.5",    
-      
-    "cypress-xpath": "^2.0.1"
+  "@4tw/cypress-drag-drop": "^2.2.2",
+  
+    
+  "@badeball/cypress-cucumber-preprocessor": "^15.0.0",
+  
+    
+  "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+  
+    
+  "cypress": "^10.11.0",
+  
+    
+  "cypress-file-upload": "^5.0.8",
+  
+    
+  "cypress-plugin-tab": "^1.0.5",
+  
+    
+  "cypress-xpath": "^2.0.1"
   
   }
+
+  
 }
