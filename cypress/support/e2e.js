@@ -37,3 +37,5 @@ if (!app.document.head.querySelector('[data-hide-command-log-request]')) {
 //o bien como primera línea en cada test individual. Poniendolo aquí ya no hace falta ponerlo en cada test
 Cypress.on('uncaught:exception', (err, runnable) => { return false });
 
+
+

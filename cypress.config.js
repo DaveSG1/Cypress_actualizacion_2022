@@ -6,7 +6,8 @@ module.exports = defineConfig({
   //para aquellas webs que pudieran dar errores por tener el https:
   chromeWebSecurity: false,
 
-  e2e: {    
+  e2e: {   
+       
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
@@ -26,11 +27,7 @@ module.exports = defineConfig({
     //o incluso en un propio elemento (o input), dentro del assert should como segundo parámetro, algo así .should("be.visible, {timeout:20000}"):
     defaultCommandTimeout:15000
   },
-
-   
-
-
-  
+ 
 
 });
 
