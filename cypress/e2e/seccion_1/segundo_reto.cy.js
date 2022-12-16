@@ -2,6 +2,7 @@
 //para que autocomplete los comandos
 
 require('cypress-xpath')
+//primero instalo el plugin en la consola poniendo npm install -D cypress-xpath
 //Con ésto añadimos la librería de xpath para poder usarlo
 
 require('cypress-plugin-tab')
