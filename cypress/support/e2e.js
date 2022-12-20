@@ -21,6 +21,7 @@ require('./commands')
 
 // Hide fetch/XHR requests. Esto lo busque en https://stackoverflow.com/questions/71357705/hide-xhr-calls-on-cypress-test-runner
 //para que no muestre en el navegador todos los get y posts al testear, que muestre sólo lo que yo he metido
+
 const app = window.top;
 if (!app.document.head.querySelector('[data-hide-command-log-request]')) {
   const style = app.document.createElement('style');
@@ -30,6 +31,7 @@ if (!app.document.head.querySelector('[data-hide-command-log-request]')) {
 
   app.document.head.appendChild(style);
 }
+
 
 //Ésto lo busqué para los tests que daban éste error: (uncaught exception) TypeError: e(...).setup is not a function
 //por lo que viendo las preguntas del curso, indicaba que, cuando pase éste error u otro,
