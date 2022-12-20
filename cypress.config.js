@@ -11,8 +11,10 @@ e2e: {
     "viewportWidth": 1500,
     "viewportHeight": 900,
     "chromeWebSecurity": false,
-    "defaultCommandTimeout": 15000,
-    "pageLoadTimeout":19000,
+    "defaultCommandTimeout": 4000,
+    "pageLoadTimeout":6000,
+
+    "experimentalStudio": true,  //con ésta linea le añado el Cypress Studio (sección e2e/Record)
 
 
     async setupNodeEvents(on, config) {
