@@ -5,6 +5,6 @@
 //Para cypress 10 no vale el vídeo del curso, ver instrucciones en éste recurso:
 // https://dev.to/kailashpathak7/how-to-integrate-bdd-cucumber-in-cypress-10-50ef
 
-//VER COMO INSTALAR CUCUMBER BIEN CON CYPRESS 10 O PROBAR CREANDO UN PROYECTO DE CYPRESS <10
+//VER COMO INSTALAR CUCUMBER BIEN CON CYPRESS 10 O PROBAR CREANDO UN PROYECTO DE CYPRESS ANTERIOR AL 10
 
 //instalar extension Cucumber (Gherkin)
